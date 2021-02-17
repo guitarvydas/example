@@ -1,0 +1,5 @@
+{
+  type: "AG",
+  inputs: [power, intensity A, intensity B],
+  outputs:
+}

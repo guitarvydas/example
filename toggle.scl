@@ -1,0 +1,15 @@
+{
+  type: "AG Leat: State Machine : Toggle",
+  inputs: [in],
+  outputs: [yes, no],
+  states:
+  [
+    { type: State, name: off, entry: "fire(no,true)" },
+    { type: State, name: on, entry: "fire(no,true)" }
+  ],
+  transitions: 
+  [
+    from off on in: GOTO on,
+    from on on in: GOTO off
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  type: "AG Composite",
+  inputs: [power, intensity A, intensity B],
+  outputs:
+  parts: [ {"_1", Toggle}, {"A", Lamp}, {"B", Lamp}],
+  connections: 
+    [
+      "self".power -> "_1".in,
+      "self"."intensity A" -> A.intensity,
+      "self"."intensity B" -> B.intensity
+      "_1".yes -> A.on, B.on,
+      "_2".no ->  A.off, B.off
+    ]
+}

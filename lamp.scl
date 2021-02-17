@@ -1,0 +1,34 @@
+{
+  type: "AG Leaf: State Machine : Lamp",
+  inputs: [on, off, intensity],
+  outputs: [],
+  states:
+  [
+    { type: State, name: off, entry: "" },
+    { type: Machine, name: on, entry: ")" }
+  ],
+  transitions: 
+  [
+    from off on in: GOTO on,
+    from on on in: GOTO off
+  ]
+}
+
+{
+  type: "State Machine : Lamp.on",
+  inputs: [intensity],
+  outputs: [],
+  states:
+  [
+    { type: State, name: low, entry: `setlamp('low')` },
+    { type: State, name: medium, entry: `setlamp('medium")` },
+    { type: State, name: high, entry: `setlamp("high")` }
+  ],
+  transitions: 
+  [
+    default: GOTO low,
+    from low on intensity: GOTO medium,
+    from medium on intensity: GOTO high,
+    from high on intensity: GOTO low,
+  ]
+}
