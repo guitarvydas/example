@@ -1,8 +1,9 @@
-type: Leaf
-implementation: state machine
 name: Lamp
 inputs: [on off intensity]
 outputs: []
+
+type: Leaf
+implementation: state machine
 states:
   turnedoff
   machine turnedon

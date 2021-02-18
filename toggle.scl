@@ -1,15 +1,12 @@
-{
-  type: "AG Leat: State Machine : Toggle",
-  inputs: [in],
-  outputs: [yes, no],
-  states:
-  [
-    { type: State, name: off, entry: "fire(no,true)" },
-    { type: State, name: on, entry: "fire(no,true)" }
-  ],
-  transitions: 
-  [
-    from off on in: GOTO on,
-    from on on in: GOTO off
-  ]
-}
+name: Toggle
+inputs: [in]
+outputs: [yes no]
+
+type: Leaf
+implementation: state machine
+states:
+  turnedoff entry: fire(true)
+  turnedon entry: fire(rue)
+transitions: 
+  from off on in: next on
+  from on on in: next off
