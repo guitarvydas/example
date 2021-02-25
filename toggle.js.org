@@ -1,0 +1,66 @@
+* states
+** const _off = 0;
+** const _on  = 1;
+
+* input ports
+** const _in = 0;
+* output ports
+** const _no = 0;
+** const _yes = 1;
+* 
+* function Toggle () {
+*     this.state = _off;
+*     this.step = function (event) {
+* 	switch (this.state) {
+* 	case _off:
+**         switch (event.tag) {
+***             case _in:
+****              this.enter (_on);
+****              break;
+****            default:
+****              throw "invalid input port";
+**         }
+**         break;
+* 	case _on:
+**         switch (event.tag) {
+***             case _in:
+****              this.enter (_off);
+****              break;
+****            default:
+****              throw "invalid input port";
+**         }
+**         break;
+*       default:
+**         throw "can't happen";
+* 	}
+*     };
+*     this.enter = function (next_state) {
+**      switch (next_state) {
+***          case _off:
+****           fire (_no, true);
+***            this.state = _off;
+***            break;
+***          case _on:
+****           fire (_yes, true);
+***            this.state = _on;
+***            break;
+*     }
+*   }
+* }
+* 
+* foreign functions
+** function fire (output, value) {
+***  console.log ("Fire called: " + this.toString () + " output:" + output.toString () + " value:" + value.toString ());
+** }
+* kernel library
+** function send (component, tag, value) {
+***  component.step ( {tag, value} );
+** }
+** function inject (component, event) {
+***  component.step (event);
+** }
+* top level
+** var top = new Toggle ();
+** inject (top, {tag: _in, value: true});
+** inject (top, {tag: _in, value: true});
+** inject (top, {tag: _in, value: true});

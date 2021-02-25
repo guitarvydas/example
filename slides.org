@@ -1,0 +1,19 @@
+
+
+
+
+* Simple Example 
+*   of Divide & Conquer
+
+
+
+* 1. Example Goal
+** lamp with two push-buttons
+*** one push-button for power ON/OFF
+**** push ON
+**** push OFF
+*** one push-button for intensity - Low/Medium/High
+**** push for Medium intensity
+**** push again for High intensity
+**** push again, goes back to Low intensity
+    
