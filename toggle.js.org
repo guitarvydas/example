@@ -1,12 +1,13 @@
-* states
-** const _off = 0;
-** const _on  = 1;
-
+* name Toggle
 * input ports
 ** const _in = 0;
 * output ports
 ** const _no = 0;
 ** const _yes = 1;
+* 
+* states
+** const _off = 0;
+** const _on  = 1;
 * 
 * function Toggle () {
 *     this.state = _off;

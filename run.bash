@@ -1,5 +1,6 @@
 #!/bin/bash
 sed <toggle.js.org \
+    -e '/name /d' \
     -e '/input ports/d' \
     -e '/output ports/d' \
     -e '/states/d' \
